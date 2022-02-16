@@ -10,6 +10,8 @@ Arquivo de texto que contem todas as instruções para fazer o build da imagem.
 ## Imagem:
 É o pacote com todas as dependências para criar os containers.
 ## Container:
+O container irá conter a sua aplicação, a sua aplicação será executada dentro dele. Criamos um container para cada aplicação, e esses containers vão dividir as funcionalidades do sistema operacional. 
+
 É uma instãncia da imagem que representa a execução de uma aplicação ou um processo ou um serviço.
 ## Build:
 É a ação que cria a imagem apartir do dockerfile.
