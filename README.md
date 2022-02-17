@@ -56,7 +56,7 @@ Mostrar as informações dos containers.
 > docker ps -a
 
 ## it
-Acessar dentro do container, exemplo: root@a695:/# 
+Acessar o terminal dentro do container, exemplo: root@a695:/# 
 > docker run -it ubuntu
 
 ## CURL LOCALHOST 
