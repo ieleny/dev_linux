@@ -92,9 +92,11 @@ Ver os logs de erro do container que está sendo executado
 Fazer o download da imagem sem criar o container
 > docker pull HELLO
 
-## RMI
+## RM
 Deletar o container docker
-> docker rmi -f HELLO
+> docker rmi -f HELLO (Imagen)
+> docker rm CONTAINER_ID (Container)
+> docker container prune (Deletar imagens não utilizadas)
 
 ## Imagens
 visualizar os containers no seu pc
