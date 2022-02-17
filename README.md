@@ -52,8 +52,12 @@ Criar container apartir da imagem
 
 ## Docker ps
 Mostrar as informações dos containers.
-> docker ps
+> docker ps <br />
 > docker ps -a
+
+## it
+Acessar dentro do container, exemplo: root@a695:/# 
+> docker run -it ubuntu
 
 ## CURL LOCALHOST 
 
@@ -67,9 +71,9 @@ Sumario do que está sendo executado
 
 ## Exec
 Comando para manipular o container enquanto o mesmo está sendo executado. Criar pasta e etc...
-> docker exec HELLO mkdir teste
-> docker exec --help
-> docker exec it hello sh
+> docker exec HELLO mkdir teste <br />
+> docker exec --help <br />
+> docker exec it hello sh <br />
 
 ## Start
 Iniciar o container especifico
@@ -103,7 +107,7 @@ visualizar os containers no seu pc
 
 ## Search
 Faz uma busca das imagens cadastradas no docker
->docker search HELLO
+> docker search HELLO
 
 ## Export
 
