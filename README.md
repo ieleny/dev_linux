@@ -77,7 +77,8 @@ Comando para manipular o container enquanto o mesmo está sendo executado. Criar
 
 ## Start
 Iniciar o container especifico
-> docker start HELLO
+> docker start HELLO <br />
+> docker start -a -i NOME_CONTAINER
 
 ## Stop
 Parar o container especifico
