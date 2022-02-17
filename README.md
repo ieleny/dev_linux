@@ -9,6 +9,16 @@ Docker composer é um jeito fácil de definir e orquestrar múltiplos containers
 # Hub
 O docker hub é um repositorio para guardar as imagens publicas e privadas.
 
+# Layered Filesystem (Camadas)
+Toda imagem que baixamos é composta de uma ou mais camadas, e esse sistema tem o nome de Layered File System.
+Essas camadas podem ser reaproveitadas em outras imagens. Por exemplo, já temos a imagem do Ubuntu, isso inclui as suas camadas, 
+e agora queremos baixar a imagem do CentOS. Se o CentOS compartilha alguma camada que já tem na imagem do Ubuntu, 
+o Docker é inteligente e só baixará as camadas diferentes, e não baixará novamente as camadas que já temos no nosso computador:
+
+Uma outra vantagem é que as camadas de uma imagem são somente para leitura. Não há modificações na imagem, quando é criado um container, 
+ele cria uma nova camada acima da imagem, e nessa camada podemos ler e escrever. Então, quando criamos um container, ele é criado 
+em cima de uma imagem já existente e nele nós conseguimos escrever. E com uma imagem base, podemos reaproveitá-la para diversos containers.
+
 # Componentes do docker
 
 ## DockerFile
