@@ -56,9 +56,15 @@ Ferramenta criar multiplos container com apenas um comando.
 
 # Comandos:
 
-## Run
+## Docker Run
 Criar container apartir da imagem
 > docker run --name HELLO -d -p 80:80 nginx
+> docker run -d (Roda em background, o terminal pode ser utilizado)
+
+## Docker port
+Visualizar as portas do computador que estão sendo utilizadas pelo container
+> docker port
+
 
 ## Docker ps
 Mostrar as informações dos containers.
@@ -93,6 +99,7 @@ Iniciar o container especifico
 ## Stop
 Parar o container especifico
 > docker stop HELLO
+> docker stop -t 0 HELLO (-t informa a quantidade de segundos que irá demorar para matar o container)
 
 ## Logs
 Ver os logs de erro do container que está sendo executado
