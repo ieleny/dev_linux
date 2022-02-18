@@ -58,7 +58,7 @@ Ferramenta criar multiplos container com apenas um comando.
 
 ## Docker Run
 Criar container apartir da imagem
-> docker run --name HELLO -d -p 80:80 nginx (--name define um nome para o container, -d roda em background e -p define a porta)< /br>
+> docker run --name HELLO -d -p 80:80 nginx (--name define um nome para o container, -d roda em background e -p define a porta)<br />
 > docker run -d (Roda em background, o terminal pode ser utilizado)
 
 ## Docker port
@@ -98,7 +98,7 @@ Iniciar o container especifico
 
 ## Stop
 Parar o container especifico
-> docker stop HELLO
+> docker stop HELLO <br />
 > docker stop -t 0 HELLO (-t informa a quantidade de segundos que irá demorar para matar o container)
 
 ## Logs
@@ -111,9 +111,9 @@ Fazer o download da imagem sem criar o container
 
 ## RM
 Deletar o container docker
-> docker rmi -f HELLO (Imagen)
-> docker rm CONTAINER_ID (Container)
-> docker container prune (Deletar imagens não utilizadas)
+> docker rmi -f HELLO (Imagen) <br />
+> docker rm CONTAINER_ID (Container) <br />
+> docker container prune (Deletar imagens não utilizadas) <br />
 
 ## Imagens
 visualizar os containers no seu pc
