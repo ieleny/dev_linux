@@ -59,7 +59,8 @@ Ferramenta criar multiplos container com apenas um comando.
 ## Docker Run
 Criar container apartir da imagem
 > docker run --name HELLO -d -p 80:80 nginx (--name define um nome para o container, -d roda em background e -p define a porta)<br />
-> docker run -d (Roda em background, o terminal pode ser utilizado)
+> docker run -d (Roda em background, o terminal pode ser utilizado) <br />
+> docker run -d -P -e AUTHOR="Teste " HELLO (-e adiciona variavel de ambiente)
 
 ## Docker port
 Visualizar as portas do computador que estão sendo utilizadas pelo container
@@ -69,7 +70,8 @@ Visualizar as portas do computador que estão sendo utilizadas pelo container
 ## Docker ps
 Mostrar as informações dos containers.
 > docker ps <br />
-> docker ps -a
+> docker ps -a (Listar todos os containers) <br />
+> docker ps -q (Mostrar apenas os id's)
 
 ## it
 Acessar o terminal dentro do container, exemplo: root@a695:/# 
@@ -99,7 +101,8 @@ Iniciar o container especifico
 ## Stop
 Parar o container especifico
 > docker stop HELLO <br />
-> docker stop -t 0 HELLO (-t informa a quantidade de segundos que irá demorar para matar o container)
+> docker stop -t 0 HELLO (-t informa a quantidade de segundos que irá demorar para matar o container) <br />
+> docker stop ${docker ps -q} (Executar o docker ps -q, oq ue retornar irá dar um docker stop)
 
 ## Logs
 Ver os logs de erro do container que está sendo executado
