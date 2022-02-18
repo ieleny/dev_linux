@@ -58,7 +58,7 @@ Ferramenta criar multiplos container com apenas um comando.
 
 ## Docker Run
 Criar container apartir da imagem
-> docker run --name HELLO -d -p 80:80 nginx < /br>
+> docker run --name HELLO -d -p 80:80 nginx (--name define um nome para o container, -d roda em background e -p define a porta)< /br>
 > docker run -d (Roda em background, o terminal pode ser utilizado)
 
 ## Docker port
