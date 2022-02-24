@@ -36,7 +36,7 @@ O container irá conter a sua aplicação, a sua aplicação será executada den
 É a ação que cria a imagem apartir do dockerfile.
 
 ## Volumes:
-Permite que o nosso container armazene arquivos, dados em disco. Se o container morrer os dados no volume irão continuar funcionando.
+Permite que o nosso container armazene arquivos, dados em disco. Se o container morrer os dados no volume irão continuar funcionando. Para isso é preciso criar um local para que seja salvo esses dados, quando é criado o volumes de dados naverdade está apontando para uma pasta no docker host.Então, quando criamos um volume, criamos uma pasta dentro do container, e o que escrevermos dentro dessa pasta na verdade estaremos escrevendo do Docker Host.
 
 ## Tags:
 Ajuda no versionamento da imagem.
@@ -60,11 +60,16 @@ Ferramenta criar multiplos container com apenas um comando.
 Criar container apartir da imagem
 > docker run --name HELLO -d -p 80:80 nginx (--name define um nome para o container, -d roda em background e -p define a porta)<br />
 > docker run -d (Roda em background, o terminal pode ser utilizado) <br />
-> docker run -d -P -e AUTHOR="Teste " HELLO (-e adiciona variavel de ambiente)
+> docker run -d -P -e AUTHOR="Teste " HELLO (-e adiciona variavel de ambiente) <br />
+> docker run -v "/var/www" (-v criar o volume na pasta)
 
 ## Docker port
 Visualizar as portas do computador que estão sendo utilizadas pelo container
 > docker port
+
+## Docker inspect
+Mostrar informações do docker especifico
+> docker inspect HELLO
 
 
 ## Docker ps
