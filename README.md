@@ -38,6 +38,15 @@ O container irá conter a sua aplicação, a sua aplicação será executada den
 ## Volumes:
 Permite que o nosso container armazene arquivos, dados em disco. Se o container morrer os dados no volume irão continuar funcionando. Para isso é preciso criar um local para que seja salvo esses dados, quando é criado o volumes de dados naverdade está apontando para uma pasta no docker host.Então, quando criamos um volume, criamos uma pasta dentro do container, e o que escrevermos dentro dessa pasta na verdade estaremos escrevendo do Docker Host.
 
+<b>Rodar um código node dentro do container:</b><br />
+<b>Baixar a imagem do node.js </b><br />
+> docker run node <br />
+<b>criar um volume, que faça referência à pasta do código no nosso Desktop:</b><br />
+> docker run -v "C:\Users\Alura\Desktop\volume-exemplo:/var/www" node <br />
+<b>Agora, para iniciar o seu servidor, executamos o comando npm start. Para executar um comando dentro do container, podemos iniciá-lo no modo interativo ou passá-lo no final do docker run:</b><br />
+> docker run -p 8080:3000 -v "C:\Users\Alura\Desktop\volume-exemplo:/var/www" -w "/var/www" node npm start <br /> (-w informar aonde o comando npm start será executado)
+
+
 ## Tags:
 Ajuda no versionamento da imagem.
 
