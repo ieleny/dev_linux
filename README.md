@@ -26,8 +26,10 @@ Arquivo de texto que contem todas as instruções para fazer o build da imagem.
 
 <b>De onde irá pegar <b/><br/>
 > FROM node:latest <br/>
+  
 <b>A pessoa que vai manter <b/><br/>
 > MAINTAINER ieleny <br/>
+  
 <b>Copiar o projeto para a pasta informada <b/><br/>
 > COPY . /var/www <br/>
 
