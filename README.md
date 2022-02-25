@@ -111,6 +111,10 @@ Criar container apartir da imagem
 > docker run -d (Roda em background, o terminal pode ser utilizado) <br />
 > docker run -d -P -e AUTHOR="Teste " HELLO (-e adiciona variavel de ambiente) <br />
 > docker run -v "/var/www" (-v criar o volume na pasta)
+ 
+## Docker run -it
+Acessar o terminal dentro do container, exemplo: root@a695:/# 
+> docker run -it ubuntu
 
 ## Docker port
 Visualizar as portas do computador que estão sendo utilizadas pelo container
@@ -120,83 +124,80 @@ Visualizar as portas do computador que estão sendo utilizadas pelo container
 Mostrar informações do docker especifico
 > docker inspect HELLO
 
-
 ## Docker ps
 Mostrar as informações dos containers.
 > docker ps <br />
 > docker ps -a (Listar todos os containers) <br />
 > docker ps -q (Mostrar apenas os id's)
 
-## it
-Acessar o terminal dentro do container, exemplo: root@a695:/# 
-> docker run -it ubuntu
-
 ## CURL LOCALHOST 
 
-## Neststat
+## Docker Neststat
 Verificar as portas no linux
 > netsat 
 
-## Info
+## Dcoker Info
 Sumario do que está sendo executado
 > docker info 
 
-## Exec
+## Docker Exec
 Comando para manipular o container enquanto o mesmo está sendo executado. Criar pasta e etc...
 > docker exec HELLO mkdir teste <br />
 > docker exec --help <br />
 > docker exec it hello sh <br />
 
-## Start
+## Docker Start
 Iniciar o container especifico
 > docker start HELLO <br />
 > docker start -a -i NOME_CONTAINER
 
-## Stop
+## Docker Stop
 Parar o container especifico
 > docker stop HELLO <br />
 > docker stop -t 0 HELLO (-t informa a quantidade de segundos que irá demorar para matar o container) <br />
 > docker stop ${docker ps -q} (Executar o docker ps -q, oq ue retornar irá dar um docker stop)
 
-## Logs
+## Docker Logs
 Ver os logs de erro do container que está sendo executado
 > docker logs HELLO
 
-## PULL
+## Docker PULL
 Fazer o download da imagem sem criar o container
 > docker pull HELLO
 
-## RM
+## Docker RM
 Deletar o container docker
 > docker rmi -f HELLO (Imagen) <br />
 > docker rm CONTAINER_ID (Container) <br />
 > docker container prune (Deletar imagens não utilizadas) <br />
 
-## Imagens
+## Docker Imagens
 visualizar os containers no seu pc
 > docker imagens 
 
-## Tags
+## Docker Tags
 Ajuda no versionamento da imagem.
 > docker tag httpd fedora/httpd:version1.0
 
-## Login
+## Docker Login
 Fazer login na conta do docker hub
 > docker login
 
-## Push
+## Docker Push
+Compartilhar alguma imagem que você criou
+> docker push [OPTIONS] NAME[:TAG]
 
-## Search
+## Docker Search
 Faz uma busca das imagens cadastradas no docker
 > docker search HELLO
 
-## Export
+## Docker Export
 
-## Import
+## Docker Import
 
-## Save
+## Docker Save
 
-## Load
+## Docker Load
 
 # 
 
