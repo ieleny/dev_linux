@@ -82,6 +82,10 @@ Permite que o nosso container armazene arquivos, dados em disco. Se o container 
 <b> Irá utilizar o caminho da maquina que o usuário estiver no momento </b><br />
 > docker run -p 8080:3000 -v "$(pwd):/var/www" -w "/var/www" node npm start <br />
 
+## Rede
+Normalmente uma aplicação é composta por diversas partes, sejam elas o load balancer/proxy, a aplicação em si, um banco de dados, etc. Quando estamos trabalhando com containers, é bem comum separarmos cada uma dessas partes em um container específico, para cada container ficar com somente uma única responsabilidade.
+
+Mas se temos uma parte da nossa aplicação em cada container, como podemos fazer para essas partes falarem entre elas? Pois para a nossa aplicação funcionar como um todo, os containers precisam trocar dados entre eles.
 
 ## Tags:
 Ajuda no versionamento da imagem.
@@ -173,6 +177,8 @@ visualizar os containers no seu pc
 > docker imagens 
 
 ## Tags
+Ajuda no versionamento da imagem.
+> docker tag httpd fedora/httpd:version1.0
 
 ## Login
 Fazer login na conta do docker hub
