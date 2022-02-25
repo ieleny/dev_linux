@@ -24,34 +24,34 @@ em cima de uma imagem já existente e nele nós conseguimos escrever. E com uma 
 ## DockerFile
 Arquivo de texto que contem todas as instruções para fazer o build da imagem.
 
-<b>De onde irá pegar <b/><br/>
+<b>De onde irá pegar </b> <br/>
 > FROM node:latest <br/>
   
-<b>A pessoa que vai manter <b/><br/>
+<b>A pessoa que vai manter </b> <br/>
 > MAINTAINER ieleny <br/>
   
-<b>Copiar o projeto para a pasta informada <b/><br/>
+<b>Copiar o projeto para a pasta informada </b> <br/>
 > COPY . /var/www <br/>
 
 <b>Os comandos rodarão dentro da pasta /var/www. Então, através do WORKDIR, assim que copiarmos o 
-  projeto, dizemos em qual diretório iremos trabalhar;<b/><br/>
+  projeto, dizemos em qual diretório iremos trabalhar;</b><br/>
 > WORKDIR /var/www <br />
   
-<b>Instalar as dependências<b/><br/>
+<b>Instalar as dependências</b><br/>
 > RUN npm install <br />
   
-<b>Quando a imagem for buildada será executado esse comando<b/><br/>
+<b>Quando a imagem for buildada será executado esse comando</b><br/>
 > ENTRYPOINT NPM START
   
-<b>Definindo a porta<b/><br/>
+<b>Definindo a porta</b><br/>
 > Expose 3000 <br/>
  
-<b>Definindo uma variavel de ambiente<b/><br/>
+<b>Definindo uma variavel de ambiente</b><br/>
 > ENV PORT=3000 <br/>
 > EXPOSE $PORT <br/>
 
   
-<b>Finalizado o dockerfile iremos executar com o docker build<b/><br/>
+<b>Finalizado o dockerfile iremos executar com o docker build</b><br/>
  > docker build -f dockerfile -t ieleny/node . 
  
 
