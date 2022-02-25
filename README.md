@@ -175,6 +175,8 @@ visualizar os containers no seu pc
 ## Tags
 
 ## Login
+Fazer login na conta do docker hub
+> docker login
 
 ## Push
 
