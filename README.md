@@ -45,6 +45,8 @@ Permite que o nosso container armazene arquivos, dados em disco. Se o container 
 > docker run -v "C:\Users\Alura\Desktop\volume-exemplo:/var/www" node <br />
 <b>Agora, para iniciar o seu servidor, executamos o comando npm start. Para executar um comando dentro do container, podemos iniciá-lo no modo interativo ou passá-lo no final do docker run:</b><br />
 > docker run -p 8080:3000 -v "C:\Users\Alura\Desktop\volume-exemplo:/var/www" -w "/var/www" node npm start <br /> (-w informar aonde o comando npm start será executado)
+<b> Irá utilizar o caminho que o usuário estiver no momento </b><br />
+> docker run -p 8080:3000 -v "$(pwd):/var/www" -w "/var/www" node npm start <br />
 
 
 ## Tags:
