@@ -1,7 +1,7 @@
 # Docker
 
 # Swarm
-Docker swarm é uma ferramenta para colocar múltiplos docker engines para trabalharem juntos em um cluster.
+Docker swarm é uma ferramenta para colocar múltiplos docker engines para trabalharem juntos em um cluster. Com o objetivo de melhorar a escalabilidade e desempenho pode ser que seja necessário criar muito mais containers para um serviço específico. Em outras palavras, seria possivel criar muitos containers aproveitando várias máquinas (virtuais ou físicas)! Ou seja, pode ser que um microsserviço fique rodando em 20 containers usando três máquinas físicas diferentes.
 
 # Composer
 Docker composer é um jeito fácil de definir e orquestrar múltiplos containers.
