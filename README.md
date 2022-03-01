@@ -28,15 +28,23 @@ CMD ["-g", "daemon off;"] <br/>
 <b> Docker compose </b><br/>
   ```
   version: '3'
+  (Descrevendo os serviços)
   services:
+      (Nome do serviço)
       nginx:
+          (Em cada serviço, devemos dizer como devemos construí-lo, como devemos fazer o seu build)
           build:
+              (O serviço será construído através de um Dockerfile, então devemos passá-lo onde ele está.)
               dockerfile: ./docker/nginx.dockerfile
+              (E também devemos passar um contexto, para dizermos a partir de onde o Dockerfile deve ser buscado. Como ele será buscado a partir da pasta atual.)
               context: .
+        (Nome da imagem/container)
         image: douglasq/nginx
         container_name: nginx
+        (Numero da porta)
         ports:
             - "80:80"
+        (Definir a rede)
         networks: 
             - production-network
         depends_on: 
