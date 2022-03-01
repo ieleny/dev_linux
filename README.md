@@ -89,30 +89,30 @@ Mas se temos uma parte da nossa aplicação em cada container, como podemos faze
 
 Por padrão no docker existe uma 'default network' ou um network padrão, então por padrão eles estão funcionando na mesma rede.
 
-<b> Roda o comando de executar pelo o terminal</b>
-docker run -it ubuntu
+<b> Roda o comando de executar pelo o terminal</b><br/>
+docker run -it ubuntu <br/>
 
-<b>Verifica se existe qual o tipo de rede que está funcionando</b>
-docker inspect IDCONTAINER
+<b>Verifica se existe qual o tipo de rede que está funcionando</b><br/>
+docker inspect IDCONTAINER <br/>
 
-OUTPUT:
-"Networks":  { bridge}
+OUTPUT: <br/>
+"Networks":  { bridge} <br/>
 
-<b>Container 1: </b>
-docker run -it ubuntu-1 ubuntu
-root@jahsd7263: hostname -i 
-root@jahsd7263: 172.17.0.2
+<b>Container 1: </b><br/>
+docker run -it ubuntu-1 ubuntu <br/>
+root@jahsd7263: hostname -i <br/>
+root@jahsd7263: 172.17.0.2 <br/>
 
-<b>Container 2: </b>
-docker run -it --name ubuntu-2 ubuntu
-root@adasd7263: hostname -i 
-root@adasd7263: 198.162.0.4
+<b>Container 2: </b><br/>
+docker run -it --name ubuntu-2 ubuntu <br/>
+root@adasd7263: hostname -i  <br/>
+root@adasd7263: 198.162.0.4 <br/>
 
-<b>Instalar ping nos containers dockers: </b>
-root@adasd7263: apt-get update && apt-get install -y iptutlis-ping
+<b>Instalar ping nos containers dockers: </b> <br/>
+root@adasd7263: apt-get update && apt-get install -y iptutlis-ping <br/>
 
-<b>Ping nos containers 1 para o 2 dockers: </b>
-root@adasd7263: ping 172.17.0.2
+<b>Ping nos containers 1 para o 2 dockers: </b><br/>
+root@adasd7263: ping 172.17.0.2<br/>
 
 <b> Para que o desenvolvedor consiga fazer a comunicação entre os containers,sem precisar informar o IP.É preciso criar a sua propria rede.
 Pode se utilizar os diversos tipos de rede, bridge, etc... </b>
@@ -121,12 +121,22 @@ docker network create --driver bridge minha-rede
 <b> Listar as redes </b>
 docker network ls
 
-<b> Foir criado os container, com os nomes ubuntu-1 e ubuntu-2, iremos utilizar esses nome de container para se conectarem, É preciso adicionar a rede criada</b>
-docker run -it --name ubuntu-1 --network minha-rede ubuntu
-docker run -it --name ubuntu-2 --network minha-rede ubuntu
+<b> Foir criado os container, com os nomes ubuntu-1 e ubuntu-2, iremos utilizar esses nome de container para se conectarem, É preciso adicionar a rede criada</b><br/>
+docker run -it --name ubuntu-1 --network minha-rede ubuntu <br/>
+docker run -it --name ubuntu-2 --network minha-rede ubuntu <br/>
 
 <b>Quando executar o ping no container ubuntu-1 para o ubuntu-2, irá funcionar pois estão conectados na mesmo rede chamada minha-rede. Mas só é possivel
-utilizar os names dos container se você estiver na mesma rede, senão será utilizada a rede default do docker</b>
+utilizar os names dos container se você estiver na mesma rede, senão será utilizada a rede default do docker</b><br/>
+
+### Conectando a aplicação ao banco de dados
+
+<b>Imagens para exemplo </b><br/>
+docker pull douglasq/alura-books:cap05 <br />
+docker pull mongo <br />
+
+<b>Subir a imagem </b> <br/>
+docker run -d --name meu-mongo --network minha-rede mongo <br/>
+docker run --network minha-rede -d -p 8080:3000 douglasq/alura-books:cap05<br/>
 
 
 ## Tags:
