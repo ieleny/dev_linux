@@ -127,6 +127,9 @@ Caso deseje executar algum comando especifico no container é preciso executar o
 Mas também podemos utilizar o nome do serviço, não precisamos necessariamente utilizar o nome do container:<br />
 > docker exec -it alura-books-1 ping node2
 
+Reiniciar o container:
+> docker-compose restart
+
 # Hub
 O docker hub é um repositorio para guardar as imagens publicas e privadas.
 
