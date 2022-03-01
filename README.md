@@ -101,6 +101,32 @@ networks:
         driver: bridge
 ```
 
+<b> Instalar docker compose no linux </b><br/>
+sudo curl -L https://github.com/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose<br/>
+sudo chmod +x /usr/local/bin/docker-compose<br/>
+
+<b>Subir os serviços do docker compose</b><br/>
+
+Devemos garantir que temos todas as imagens envolvidas neste arquivo esteja na nossa máquina.
+Dentro da pasta do nosso projeto, executamos o seguinte comando:
+$ cd Desktop/alura-docker-cap06/<br />
+~/Desktop/alura-docker-cap06$ sudo docker-compose build <br />
+
+Com os serviços criados, podemos subi-los através do comando docker-compose up. 
+Esse comando irá seguir o que escrevemos no docker-compose.yml, ou seja, cria a rede, o container do MongoDB, os três containers da aplicação 
+e o container do NGINX. Depois, são exibidos alguns logs, sendo que cada um dos containers fica com uma cor diferente, para podermos distinguir melhor.
+
+Se tudo funcionou, quando acessarmos o NGINX, seremos redirecionados para algum dos containers da nossa aplicação. 
+Configuramos a porta 80 para acessar o NGINX, então vamos acessar no navegador a página http://localhost:80/. 
+
+Para ter uma visualização simples dos serviços que estão rodando, executamos o comando <b> docker-compose.ps </b>
+Se quiser remover os containers execute o comando <b>docker-compose down</b>
+Caso deseje executar algum comando especifico no container é preciso executar o comando de docker exec, exemplo: <br />
+<b> docker exec -it alura-books-1 ping alura-books-2 </b><br />
+
+Mas também podemos utilizar o nome do serviço, não precisamos necessariamente utilizar o nome do container:<br />
+> docker exec -it alura-books-1 ping node2
+
 # Hub
 O docker hub é um repositorio para guardar as imagens publicas e privadas.
 
