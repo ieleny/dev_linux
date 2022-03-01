@@ -6,6 +6,93 @@ Docker swarm é uma ferramenta para colocar múltiplos docker engines para traba
 # Composer
 Docker composer é um jeito fácil de definir e orquestrar múltiplos containers.
 
+Esses dois comandos criam dois containers, mas subindo eles desse jeito manual, é muito comum esquecermos de passar alguma flag, ou subir o container na ordem errada, sem a devida rede, ou seja, é um trabalho muito manual e facilmente suscetível a erros, isso com somente dois containers.
+
+Esse modo de subir os containers na mão é bom se quisermos criar um ambiente rapidamente, ou são poucos containers, mas quando a aplicação começa a crescer, temos que digitar muitos comandos.
+
+PESQUISAR COMO COLOCAR LOADBALANCER, NO PROJETO DOCKER! PARA FAZER A DISTRIBUIÇÃO DE ACESSOS.
+NGNIX
+
+O docker compose funciona em um arquivo de texto chamado docker-compose.yml, nesse arquivo será descrito o que passo a passo para subir a aplicação.
+
+<b> Dockerfile do NGINX</b><br/>
+FROM nginx:latest<br/>
+MAINTAINER Douglas Quintanilha<br/>
+COPY /public /var/www/public<br/>
+COPY /docker/config/nginx.conf /etc/nginx/nginx.conf<br/>
+EXPOSE 80 443<br/>
+ENTRYPOINT ["nginx"] <br/>
+/* Parametros extras para o entrypoint */ <br/>
+CMD ["-g", "daemon off;"] <br/>
+
+<b> Docker compose </b><br/>
+  ```
+  version: '3'
+  services:
+      nginx:
+          build:
+              dockerfile: ./docker/nginx.dockerfile
+              context: .
+        image: douglasq/nginx
+        container_name: nginx
+        ports:
+            - "80:80"
+        networks: 
+            - production-network
+        depends_on: 
+            - "node1"
+            - "node2"
+            - "node3"
+
+    mongodb:
+        image: mongo
+        networks: 
+            - production-network
+
+    node1:
+        build:
+            dockerfile: ./docker/alura-books.dockerfile
+            context: .
+        image: douglasq/alura-books
+        container_name: alura-books-1
+        ports:
+            - "3000"
+        networks: 
+            - production-network
+        depends_on:
+            - "mongodb"
+
+    node2:
+        build:
+            dockerfile: ./docker/alura-books.dockerfile
+            context: .
+        image: douglasq/alura-books
+        container_name: alura-books-2
+        ports:
+            - "3000"
+        networks: 
+            - production-network
+        depends_on:
+            - "mongodb"
+
+    node3:
+        build:
+            dockerfile: ./docker/alura-books.dockerfile
+            context: .
+        image: douglasq/alura-books
+        container_name: alura-books-3
+        ports:
+            - "3000"
+        networks: 
+            - production-network
+        depends_on:
+            - "mongodb"
+
+networks: 
+    production-network:
+        driver: bridge
+```
+
 # Hub
 O docker hub é um repositorio para guardar as imagens publicas e privadas.
 
