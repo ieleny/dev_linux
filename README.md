@@ -16,14 +16,14 @@ NGNIX
 O docker compose funciona em um arquivo de texto chamado docker-compose.yml, nesse arquivo será descrito o que passo a passo para subir a aplicação.
 
 <b> Dockerfile do NGINX</b><br/>
-FROM nginx:latest<br/>
-MAINTAINER Douglas Quintanilha<br/>
-COPY /public /var/www/public<br/>
-COPY /docker/config/nginx.conf /etc/nginx/nginx.conf<br/>
-EXPOSE 80 443<br/>
-ENTRYPOINT ["nginx"] <br/>
-/* Parametros extras para o entrypoint */ <br/>
-CMD ["-g", "daemon off;"] <br/>
+> FROM nginx:latest<br/>
+> MAINTAINER Douglas Quintanilha<br/>
+> COPY /public /var/www/public<br/>
+> COPY /docker/config/nginx.conf /etc/nginx/nginx.conf<br/>
+> EXPOSE 80 443<br/>
+> ENTRYPOINT ["nginx"] <br/>
+> /* Parametros extras para o entrypoint */ <br/>
+> CMD ["-g", "daemon off;"] <br/>
 
 <b> Docker compose </b><br/>
   ```
@@ -102,15 +102,15 @@ networks:
 ```
 
 <b> Instalar docker compose no linux </b><br/>
-sudo curl -L https://github.com/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose<br/>
-sudo chmod +x /usr/local/bin/docker-compose<br/>
+sudo curl -L https://github.com/docker/compose/releases/download/1.15.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose<br /><br />
+sudo chmod +x /usr/local/bin/docker-compose <br/>
 
 <b>Subir os serviços do docker compose</b><br/>
 
 Devemos garantir que temos todas as imagens envolvidas neste arquivo esteja na nossa máquina.
 Dentro da pasta do nosso projeto, executamos o seguinte comando:
-$ cd Desktop/alura-docker-cap06/<br />
-~/Desktop/alura-docker-cap06$ sudo docker-compose build <br />
+> $ cd Desktop/alura-docker-cap06/<br />
+> ~/Desktop/alura-docker-cap06$ sudo docker-compose build <br />
 
 Com os serviços criados, podemos subi-los através do comando docker-compose up. 
 Esse comando irá seguir o que escrevemos no docker-compose.yml, ou seja, cria a rede, o container do MongoDB, os três containers da aplicação 
@@ -122,7 +122,7 @@ Configuramos a porta 80 para acessar o NGINX, então vamos acessar no navegador 
 Para ter uma visualização simples dos serviços que estão rodando, executamos o comando <b> docker-compose.ps </b>
 Se quiser remover os containers execute o comando <b>docker-compose down</b>
 Caso deseje executar algum comando especifico no container é preciso executar o comando de docker exec, exemplo: <br />
-<b> docker exec -it alura-books-1 ping alura-books-2 </b><br />
+> docker exec -it alura-books-1 ping alura-books-2 <br />
 
 Mas também podemos utilizar o nome do serviço, não precisamos necessariamente utilizar o nome do container:<br />
 > docker exec -it alura-books-1 ping node2
